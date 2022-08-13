@@ -8,7 +8,7 @@
 typedef struct StackNode{
 
     int val;
-    struct StackNode *prox, *Ant;
+    struct StackNode *prox, *ant;
 
 }StNode;
 
@@ -33,7 +33,7 @@ void Stack_CreateStack(Stack *s);
  * @param val Valor
  * @return Retorna o endereço do nó criado.
  */
-StNode *Sstack_CreateNode(int val);
+StNode *Stack_CreateNode(int val);
 
 
 /**
