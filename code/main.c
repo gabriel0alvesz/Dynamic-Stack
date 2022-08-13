@@ -15,5 +15,12 @@ int main(){
     Stack_Push(&s,7);
 
     Stack_PrintStack(&s);
+
+    Stack_Pop(&s);
+
+    Stack_PrintStack(&s);
+
+    Stack_DestroyStack(&s);
+    
     return 0;
 }

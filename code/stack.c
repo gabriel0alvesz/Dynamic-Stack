@@ -19,12 +19,17 @@ StNode *Stack_CreateNode(int val){
     return new;
 }
 
+bool Stack_isEmpty(Stack *s){
+
+    return s->top == s->base || s->size == 0;
+}
+
 void Stack_Push(Stack *s, int val){
 
     StNode *new = Stack_CreateNode(val);
 
     //A Pilha esta vazia?
-    if(s->top == s->base || s->size == 0){
+    if(Stack_isEmpty(s)){
 
         s->base->prox = new;
         s->top = new;
@@ -40,6 +45,23 @@ void Stack_Push(Stack *s, int val){
     }
 
     s->size++;
+}
+
+void Stack_Pop(Stack *s){
+
+    StNode *aux = s->top;
+
+    if(!Stack_isEmpty(s)){
+
+        s->top = s->top->ant;
+        free(aux);
+        s->top->prox = NULL;
+
+    }else{
+
+        puts("---> Pilha vazia!");
+    }
+
 }
 
 void Stack_PrintStack(Stack *s){
@@ -58,6 +80,41 @@ void Stack_PrintStack(Stack *s){
     
     }
 
-    puts("\tBase");
+    puts("\tBase\n");
 }
+
+int Stack_LastNodeInStack(Stack *s){
+
+    return s->top->val;
+}
+
+void Stack_DestroyStack(Stack *s){
+
+    //Verifica se ao menos a Pilha foi criada.
+    if(!(s->base == NULL)){
+
+        StNode *p = s->base;
+        StNode *aux = NULL;
+
+        while(p != NULL){
+            
+            aux = p;
+            p = p->prox;
+            free(aux);
+        
+        }
+
+        free(p);
+        s = NULL;
+        
+        puts("\n---> Pilha Desalocada!\n");
+
+    }else{
+
+        puts("---> Pilha não existe!\n");
+    
+    }
+}
+
+
 

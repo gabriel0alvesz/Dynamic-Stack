@@ -35,6 +35,14 @@ void Stack_CreateStack(Stack *s);
  */
 StNode *Stack_CreateNode(int val);
 
+/**
+ * @brief Verifica se a pilha está vazia.
+ * 
+ * @param s Endereço da Pilha(&s)
+ * @return true = A Pilha está vazia.
+ * @return false = A Pilha não está vazia.
+ */
+bool Stack_isEmpty(Stack *s);
 
 /**
  * @brief Empilha.
@@ -45,7 +53,7 @@ StNode *Stack_CreateNode(int val);
 void Stack_Push(Stack *s, int val);
 
 /**
- * @brief Desempilha.
+ * @brief Desempilha(elemento no top).
  * 
  * @param s Endereço da Pilha(&s).
  */
@@ -63,7 +71,14 @@ void Stack_PrintStack(Stack *s);
  * 
  * @param s Endereço da Pilha(&s).
  */
-void Stack_LastNodeInStack(Stack *s);
+int Stack_LastNodeInStack(Stack *s);
+
+/**
+ * @brief Desaloca a Pilha.
+ * 
+ * @param s Endereço da Pilha(&s).
+ */
+void Stack_DestroyStack(Stack *s);
 
 
 #endif
